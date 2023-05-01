@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "etrusted-ios-trustbadge-library",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/trustedshops-public/etrusted-ios-trustbadge-library.git",
+      "state" : {
+        "revision" : "710e326d9e367c0a036c4abf069f995f0d87006c",
+        "version" : "1.2.1"
+      }
+    }
+  ],
+  "version" : 2
+}

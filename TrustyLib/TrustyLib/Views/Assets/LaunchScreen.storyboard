@@ -17,18 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TrustyLib" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRq-In-xHl">
-                                <rect key="frame" x="123.00000000000001" y="404.66666666666669" width="147.33333333333337" height="43"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
-                                <color key="textColor" name="tsGray900"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playstore" translatesAutoresizingMaskIntoConstraints="NO" id="N2L-c9-GKW">
+                                <rect key="frame" x="96.666666666666686" y="326" width="200.00000000000006" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Hlv-nS-816"/>
+                                    <constraint firstAttribute="height" constant="200" id="gDX-Pw-KWS"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="tsPineapple500"/>
                         <constraints>
-                            <constraint firstItem="BRq-In-xHl" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="6R1-gy-B11"/>
-                            <constraint firstItem="BRq-In-xHl" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="lbg-Eo-VPq"/>
+                            <constraint firstItem="N2L-c9-GKW" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="XiP-Cj-6xg"/>
+                            <constraint firstItem="N2L-c9-GKW" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="vQA-fC-VzQ"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,9 +39,7 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="tsGray900">
-            <color red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="playstore" width="512" height="512"/>
         <namedColor name="tsPineapple500">
             <color red="1" green="0.86274509803921573" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

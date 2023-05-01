@@ -39,14 +39,14 @@ struct HomeView: View {
                 Text("Trustylib library helps you integrate Trusted Shops Trustmark, Shop Grade, Product Grade and Buyer Protection widgets in your iOS apps.")
                     .font(.system(size: 14, weight: .medium))
                     .foregroundColor(.tsGray900)
-                    .padding(.bottom, 10)
+                    .padding(.bottom, 30)
                 
                 Text("Please select widget type, it's properties and Tap on the Generate Widget button to add a new widget")
                     .font(.system(size: 14, weight: .regular))
-                    .foregroundColor(.tsGray700)
+                    .foregroundColor(.tsGray900)
                 
                 // Trustbadge input fields
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .leading, spacing: 16) {
                     // Widget type
                     HStack(alignment: .center, spacing: 10) {
                         Text("Widget type")
@@ -73,7 +73,7 @@ struct HomeView: View {
 
                                 Image(systemName: "arrow.down")
                                     .symbolRenderingMode(.monochrome)
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(Color.tsGray600)
                                     .font(.system(size: 12, weight: .regular))
                             }
                             .padding(.all, 5)
@@ -112,7 +112,7 @@ struct HomeView: View {
 
                                 Image(systemName: "arrow.down")
                                     .symbolRenderingMode(.monochrome)
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(Color.tsGray600)
                                     .font(.system(size: 12, weight: .regular))
                             }
                             .padding(.all, 5)
@@ -152,7 +152,7 @@ struct HomeView: View {
 
                                     Image(systemName: "arrow.down")
                                         .symbolRenderingMode(.monochrome)
-                                        .foregroundColor(Color.white)
+                                        .foregroundColor(Color.tsGray600)
                                         .font(.system(size: 12, weight: .regular))
                                 }
                                 .padding(.all, 5)
@@ -191,7 +191,7 @@ struct HomeView: View {
 
                                 Image(systemName: "arrow.down")
                                     .symbolRenderingMode(.monochrome)
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(Color.tsGray600)
                                     .font(.system(size: 12, weight: .regular))
                             }
                             .padding(.all, 5)
@@ -204,10 +204,11 @@ struct HomeView: View {
                         }
                     }
                 }
+                .padding(.bottom, 20)
                 
                 // Generate widget button
                 Button(action: {
-                    print("Generate \(self.viewModel.selectedWidgetType.title) widget")
+                    self.viewModel.addNewWidgetWith()
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 20)
@@ -227,10 +228,17 @@ struct HomeView: View {
                     .fill(Color.tsGray400)
                     .frame(height: 1)
                 
+                // Trustbadge widgets
+                VStack(alignment: .leading, spacing: 24) {
+                    ForEach(self.viewModel.widgetsData, id: \.self.id) { widgetData in
+                        TrustbadgeWidget(widgetData: widgetData)
+                    }
+                }
+                
                 Spacer()
                 
             }
-            .padding(.top, 60)
+            .padding(.top, 80)
             .frame(
                 width: UIScreen.main.bounds.width - 32,
                 height: UIScreen.main.bounds.height

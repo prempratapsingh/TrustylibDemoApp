@@ -18,18 +18,18 @@ enum Product: CaseIterable {
     var id: String {
         switch self {
         case .none: return "Select"
-        case .productOne: return "31303033" // Demo Shop - DINING CHAIR
-        case .productTwo: return "31303030" // Demo Shop - COUCH WITH RECAMIERE
-        case .productThree: return "31303035" // Demo Shop - VINTAGE SIDEBOARD
+        case .productOne: return "31303033" // Demo Shop - Dining Chair
+        case .productTwo: return "31303030" // Demo Shop - Couch With Recamiere
+        case .productThree: return "31303035" // Demo Shop - Vintage Sideboard
         }
     }
     
     var name: String {
         switch self {
         case .none: return "Select"
-        case .productOne: return "DINING CHAIR"
-        case .productTwo: return "COUCH WITH RECAMIERE"
-        case .productThree: return "VINTAGE SIDEBOARD"
+        case .productOne: return "Dining Chair"
+        case .productTwo: return "Couch With Recamiere"
+        case .productThree: return "Vintage Sideboard"
         }
     }
 }

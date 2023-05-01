@@ -14,23 +14,20 @@ class WidgetModel {
     var id: String
     var type: WidgetType
     var alignment: WidgetAlignment
-    var tsId: String
-    var channelId: String?
-    var productId: String?
+    var channel: Channel
+    var product: Product
     
     // MARK: - Initializer
     
     init(
         type: WidgetType,
         alignment: WidgetAlignment,
-        tsId: String,
-        channelId: String? = nil,
-        productId: String? = nil) {
+        channel: Channel,
+        product: Product = .none) {
             self.id = UUID().uuidString
             self.type = type
             self.alignment = alignment
-            self.tsId = tsId
-            self.channelId = channelId
-            self.productId = productId
+            self.channel = channel
+            self.product = product
     }
 }

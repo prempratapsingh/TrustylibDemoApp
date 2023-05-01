@@ -15,7 +15,7 @@ class HomeViewModel: ObservableObject {
     
     // MARK: - Public properties
     
-    @Published var widgets: [WidgetModel] = []
+    @Published var widgetsData: [WidgetModel] = []
     
     @Published var areRequiredInputsProvided: Bool = false
     @Published var selectedWidgetType: WidgetType = .trustMark
@@ -29,21 +29,15 @@ class HomeViewModel: ObservableObject {
     /**
      Adds a new widget data object to the list of widget data
      */
-    func addNewWidgetWith(
-        type: WidgetType,
-        alignment: WidgetAlignment,
-        tsId: String,
-        channelId: String? = nil,
-        productId: String? = nil) {
-            let widget = WidgetModel(
-                type: type,
-                alignment: alignment,
-                tsId: tsId,
-                channelId: channelId,
-                productId: productId
-            )
-            
-            self.widgets.append(widget)
+    func addNewWidgetWith() {
+        let widget = WidgetModel(
+            type: self.selectedWidgetType,
+            alignment: self.selectedWidgetAlignment,
+            channel: self.selectedChannel,
+            product: self.selectedProduct
+        )
+        self.widgetsData.removeAll()
+        self.widgetsData.append(widget)
     }
     
     /**

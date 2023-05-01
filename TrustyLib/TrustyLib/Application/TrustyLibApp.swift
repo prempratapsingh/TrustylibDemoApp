@@ -6,9 +6,18 @@
 //
 
 import SwiftUI
+import Trustylib
 
 @main
 struct TrustyLibApp: App {
+    
+    // MARK: - Intializeer
+    init() {
+        Trustbadge.configure()
+    }
+    
+    // MARK: - User interface
+    
     var body: some Scene {
         WindowGroup {
             HomeView()

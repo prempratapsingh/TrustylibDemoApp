@@ -23,6 +23,9 @@
 		C199489B29FFA5FE004CD4A1 /* TsId.swift in Sources */ = {isa = PBXBuildFile; fileRef = C199489A29FFA5FE004CD4A1 /* TsId.swift */; };
 		C199489D29FFA60C004CD4A1 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C199489C29FFA60C004CD4A1 /* Channel.swift */; };
 		C199489F29FFA617004CD4A1 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C199489E29FFA617004CD4A1 /* Product.swift */; };
+		C19948A12A0020D8004CD4A1 /* TrustbadgeConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = C19948A02A0020D8004CD4A1 /* TrustbadgeConfiguration.plist */; };
+		C19948A42A002157004CD4A1 /* Trustylib in Frameworks */ = {isa = PBXBuildFile; productRef = C19948A32A002157004CD4A1 /* Trustylib */; };
+		C19948A62A00217A004CD4A1 /* TrustbadgeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19948A52A00217A004CD4A1 /* TrustbadgeWidget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C199485B29FF6A7B004CD4A1 /* TrustyLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrustyLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C199485B29FF6A7B004CD4A1 /* TrustyLibDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrustyLibDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C199485E29FF6A7B004CD4A1 /* TrustyLibApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustyLibApp.swift; sourceTree = "<group>"; };
 		C199486029FF6A7B004CD4A1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C199486229FF6A7B004CD4A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 		C199489A29FFA5FE004CD4A1 /* TsId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TsId.swift; sourceTree = "<group>"; };
 		C199489C29FFA60C004CD4A1 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		C199489E29FFA617004CD4A1 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		C19948A02A0020D8004CD4A1 /* TrustbadgeConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrustbadgeConfiguration.plist; sourceTree = "<group>"; };
+		C19948A52A00217A004CD4A1 /* TrustbadgeWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustbadgeWidget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C19948A42A002157004CD4A1 /* Trustylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +108,7 @@
 		C199485C29FF6A7B004CD4A1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C199485B29FF6A7B004CD4A1 /* TrustyLib.app */,
+				C199485B29FF6A7B004CD4A1 /* TrustyLibDemo.app */,
 				C199486B29FF6A7B004CD4A1 /* TrustyLibTests.xctest */,
 				C199487529FF6A7B004CD4A1 /* TrustyLibUITests.xctest */,
 			);
@@ -149,6 +155,7 @@
 		C199488829FF6A93004CD4A1 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				C19948A02A0020D8004CD4A1 /* TrustbadgeConfiguration.plist */,
 				C199485E29FF6A7B004CD4A1 /* TrustyLibApp.swift */,
 			);
 			path = Application;
@@ -160,6 +167,7 @@
 				C199488F29FF98E5004CD4A1 /* Extensions */,
 				C199488C29FF6AB8004CD4A1 /* Assets */,
 				C199486029FF6A7B004CD4A1 /* HomeView.swift */,
+				C19948A52A00217A004CD4A1 /* TrustbadgeWidget.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,9 +213,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C199485A29FF6A7B004CD4A1 /* TrustyLib */ = {
+		C199485A29FF6A7B004CD4A1 /* TrustyLibDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C199487F29FF6A7B004CD4A1 /* Build configuration list for PBXNativeTarget "TrustyLib" */;
+			buildConfigurationList = C199487F29FF6A7B004CD4A1 /* Build configuration list for PBXNativeTarget "TrustyLibDemo" */;
 			buildPhases = (
 				C199485729FF6A7B004CD4A1 /* Sources */,
 				C199485829FF6A7B004CD4A1 /* Frameworks */,
@@ -217,9 +225,12 @@
 			);
 			dependencies = (
 			);
-			name = TrustyLib;
+			name = TrustyLibDemo;
+			packageProductDependencies = (
+				C19948A32A002157004CD4A1 /* Trustylib */,
+			);
 			productName = TrustyLib;
-			productReference = C199485B29FF6A7B004CD4A1 /* TrustyLib.app */;
+			productReference = C199485B29FF6A7B004CD4A1 /* TrustyLibDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C199486A29FF6A7B004CD4A1 /* TrustyLibTests */ = {
@@ -290,11 +301,14 @@
 				Base,
 			);
 			mainGroup = C199485229FF6A7B004CD4A1;
+			packageReferences = (
+				C19948A22A002157004CD4A1 /* XCRemoteSwiftPackageReference "etrusted-ios-trustbadge-library" */,
+			);
 			productRefGroup = C199485C29FF6A7B004CD4A1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C199485A29FF6A7B004CD4A1 /* TrustyLib */,
+				C199485A29FF6A7B004CD4A1 /* TrustyLibDemo */,
 				C199486A29FF6A7B004CD4A1 /* TrustyLibTests */,
 				C199487429FF6A7B004CD4A1 /* TrustyLibUITests */,
 			);
@@ -306,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C19948A12A0020D8004CD4A1 /* TrustbadgeConfiguration.plist in Resources */,
 				C199488E29FF9758004CD4A1 /* LaunchScreen.storyboard in Resources */,
 				C199486629FF6A7B004CD4A1 /* Preview Assets.xcassets in Resources */,
 				C199486329FF6A7B004CD4A1 /* Assets.xcassets in Resources */,
@@ -342,6 +357,7 @@
 				C199489529FF9F7F004CD4A1 /* HomeViewModel.swift in Sources */,
 				C199489B29FFA5FE004CD4A1 /* TsId.swift in Sources */,
 				C199485F29FF6A7B004CD4A1 /* TrustyLibApp.swift in Sources */,
+				C19948A62A00217A004CD4A1 /* TrustbadgeWidget.swift in Sources */,
 				C199489729FFA035004CD4A1 /* WidgetAlignment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,12 +384,12 @@
 /* Begin PBXTargetDependency section */
 		C199486D29FF6A7B004CD4A1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C199485A29FF6A7B004CD4A1 /* TrustyLib */;
+			target = C199485A29FF6A7B004CD4A1 /* TrustyLibDemo */;
 			targetProxy = C199486C29FF6A7B004CD4A1 /* PBXContainerItemProxy */;
 		};
 		C199487729FF6A7B004CD4A1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C199485A29FF6A7B004CD4A1 /* TrustyLib */;
+			target = C199485A29FF6A7B004CD4A1 /* TrustyLibDemo */;
 			targetProxy = C199487629FF6A7B004CD4A1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -504,6 +520,7 @@
 				DEVELOPMENT_TEAM = SP56HZ86QA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TrustyLib;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -539,6 +556,7 @@
 				DEVELOPMENT_TEAM = SP56HZ86QA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TrustyLib;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -651,7 +669,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C199487F29FF6A7B004CD4A1 /* Build configuration list for PBXNativeTarget "TrustyLib" */ = {
+		C199487F29FF6A7B004CD4A1 /* Build configuration list for PBXNativeTarget "TrustyLibDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C199488029FF6A7B004CD4A1 /* Debug */,
@@ -679,6 +697,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C19948A22A002157004CD4A1 /* XCRemoteSwiftPackageReference "etrusted-ios-trustbadge-library" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/trustedshops-public/etrusted-ios-trustbadge-library.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C19948A32A002157004CD4A1 /* Trustylib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C19948A22A002157004CD4A1 /* XCRemoteSwiftPackageReference "etrusted-ios-trustbadge-library" */;
+			productName = Trustylib;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C199485329FF6A7B004CD4A1 /* Project object */;
 }
