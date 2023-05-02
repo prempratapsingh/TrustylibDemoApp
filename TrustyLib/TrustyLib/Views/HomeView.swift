@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Trustylib
 
 /**
  HomeView presents the root view of the application with a user inteface for helping users
@@ -34,24 +35,28 @@ struct HomeView: View {
                 
                 // Title text
                 Text("TrustyLib")
-                    .font(.system(size: 24, weight: .semibold))
+                    .font(.system(size: 28, weight: .semibold))
                     .foregroundColor(.tsBlue700)
-                Text("Trustylib library helps you integrate Trusted Shops Trustmark, Shop Grade, Product Grade and Buyer Protection widgets in your iOS apps.")
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(.tsGray900)
-                    .padding(.bottom, 30)
+                Text("Trustylib library provides easy to integrate TrustedShops Trustmark, Shop Grade, Product Grade and Buyer Protection widgets for iOS and Android applications.")
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundColor(.tsGray800)
+                Text("PLease checkout library's [Git Project](https://github.com/trustedshops-public/etrusted-ios-trustbadge-library) for more details about the available widgets, usage guides, etc.")
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundColor(.tsGray800)
+                    .padding(.bottom, 10)
                 
-                Text("Please select widget type, it's properties and Tap on the Generate Widget button to add a new widget")
+                Text("Please select widget type, its properties and tap on 'Generate Widget' button to generate and display the desired widget")
                     .font(.system(size: 14, weight: .regular))
-                    .foregroundColor(.tsGray900)
+                    .foregroundColor(.tsGray700)
                 
                 // Trustbadge input fields
-                VStack(alignment: .leading, spacing: 16) {
+                VStack(alignment: .leading, spacing: 24) {
                     // Widget type
                     HStack(alignment: .center, spacing: 10) {
-                        Text("Widget type")
+                        Text("Widget")
                             .font(.system(size: 14, weight: .regular))
-                            .foregroundColor(.tsGray900)
+                            .foregroundColor(.tsGray700)
+                            .frame(width: 80, alignment: .trailing)
                         
                         Menu {
                             ForEach(WidgetType.allCases, id: \.self) { widgetType in
@@ -68,8 +73,8 @@ struct HomeView: View {
                             HStack(alignment: .center, spacing: 0) {
                                 Text(self.viewModel.selectedWidgetType.title)
                                     .font(.system(size: 12, weight: .regular))
-                                    .frame(width: 100)
-                                    .foregroundColor(Color.tsGray900)
+                                    .frame(width: 200)
+                                    .foregroundColor(Color.tsGray700)
 
                                 Image(systemName: "arrow.down")
                                     .symbolRenderingMode(.monochrome)
@@ -90,7 +95,8 @@ struct HomeView: View {
                     HStack(alignment: .center, spacing: 10) {
                         Text("Shop")
                             .font(.system(size: 14, weight: .regular))
-                            .foregroundColor(.tsGray900)
+                            .foregroundColor(.tsGray700)
+                            .frame(width: 80, alignment: .trailing)
                         
                         Menu {
                             ForEach(Channel.allCases, id: \.self) { channel in
@@ -107,8 +113,8 @@ struct HomeView: View {
                             HStack(alignment: .center, spacing: 0) {
                                 Text(self.viewModel.selectedChannel.name)
                                     .font(.system(size: 12, weight: .regular))
-                                    .frame(width: 100)
-                                    .foregroundColor(Color.tsGray900)
+                                    .frame(width: 200)
+                                    .foregroundColor(Color.tsGray700)
 
                                 Image(systemName: "arrow.down")
                                     .symbolRenderingMode(.monochrome)
@@ -120,7 +126,7 @@ struct HomeView: View {
                             .background(
                                 RoundedRectangle(cornerRadius: 15)
                                     .fill(Color.tsGray100)
-                                    .frame(height: 30)
+                                    .frame(height: 35)
                             )
                         }
                     }
@@ -130,8 +136,9 @@ struct HomeView: View {
                         HStack(alignment: .center, spacing: 10) {
                             Text("Product")
                                 .font(.system(size: 14, weight: .regular))
-                                .foregroundColor(.tsGray900)
-                            
+                                .frame(width: 80, alignment: .trailing)
+                                .foregroundColor(.tsGray700)
+                                
                             Menu {
                                 ForEach(Product.allCases, id: \.self) { product in
                                     Button(
@@ -147,8 +154,8 @@ struct HomeView: View {
                                 HStack(alignment: .center, spacing: 0) {
                                     Text(self.viewModel.selectedProduct.name)
                                         .font(.system(size: 12, weight: .regular))
-                                        .frame(width: 100)
-                                        .foregroundColor(Color.tsGray900)
+                                        .frame(width: 200)
+                                        .foregroundColor(Color.tsGray700)
 
                                     Image(systemName: "arrow.down")
                                         .symbolRenderingMode(.monochrome)
@@ -168,10 +175,11 @@ struct HomeView: View {
                     
                     // Widget alignment
                     HStack(alignment: .center, spacing: 10) {
-                        Text("Widget Alignment")
+                        Text("Alignment")
                             .font(.system(size: 14, weight: .regular))
-                            .foregroundColor(.tsGray900)
-                        
+                            .frame(width: 80, alignment: .trailing)
+                            .foregroundColor(.tsGray700)
+                            
                         Menu {
                             ForEach(WidgetAlignment.allCases, id: \.self) { alignment in
                                 Button(
@@ -186,8 +194,8 @@ struct HomeView: View {
                             HStack(alignment: .center, spacing: 0) {
                                 Text(self.viewModel.selectedWidgetAlignment.title)
                                     .font(.system(size: 12, weight: .regular))
-                                    .frame(width: 100)
-                                    .foregroundColor(Color.tsGray900)
+                                    .frame(width: 200)
+                                    .foregroundColor(Color.tsGray700)
 
                                 Image(systemName: "arrow.down")
                                     .symbolRenderingMode(.monochrome)
@@ -225,7 +233,7 @@ struct HomeView: View {
                 
                 // Seperator line
                 Rectangle()
-                    .fill(Color.tsGray400)
+                    .fill(Color.tsGray200)
                     .frame(height: 1)
                 
                 // Trustbadge widgets
@@ -234,11 +242,12 @@ struct HomeView: View {
                         TrustbadgeWidget(widgetData: widgetData)
                     }
                 }
+                .padding(.top, 20)
                 
                 Spacer()
                 
             }
-            .padding(.top, 80)
+            .padding(.top, 60)
             .frame(
                 width: UIScreen.main.bounds.width - 32,
                 height: UIScreen.main.bounds.height
