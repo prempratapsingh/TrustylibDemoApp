@@ -242,7 +242,7 @@ struct HomeView: View {
                         TrustbadgeWidget(widgetData: widgetData)
                     }
                 }
-                .padding(.top, 20)
+                .padding(.top, 10)
                 
                 Spacer()
                 
@@ -252,6 +252,12 @@ struct HomeView: View {
                 width: UIScreen.main.bounds.width - 32,
                 height: UIScreen.main.bounds.height
             )
+            
+            Image("waveBottomRight")
+                .resizable()
+                .scaledToFit()
+                .frame(width: UIScreen.main.bounds.width, height: 250)
+                .position(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height - 30)
         }
     }
 }
