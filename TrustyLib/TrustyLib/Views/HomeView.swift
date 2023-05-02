@@ -40,7 +40,7 @@ struct HomeView: View {
                 Text("Trustylib library provides easy to integrate TrustedShops Trustmark, Shop Grade, Product Grade and Buyer Protection widgets for iOS and Android applications.")
                     .font(.system(size: 16, weight: .regular))
                     .foregroundColor(.tsGray800)
-                Text("PLease checkout library's [Git Project](https://github.com/trustedshops-public/etrusted-ios-trustbadge-library) for more details about the available widgets, usage guides, etc.")
+                Text("Please checkout library's [Git Project](https://github.com/trustedshops-public/etrusted-ios-trustbadge-library) for more details about the available widgets, usage guides, etc.")
                     .font(.system(size: 16, weight: .regular))
                     .foregroundColor(.tsGray800)
                     .padding(.bottom, 10)
