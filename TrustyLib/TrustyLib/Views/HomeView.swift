@@ -29,6 +29,13 @@ struct HomeView: View {
             Color.tsOffwhite
                 .ignoresSafeArea()
             
+            // Yellow cloud graphics
+            Image("waveBottomRight")
+                .resizable()
+                .scaledToFit()
+                .frame(width: UIScreen.main.bounds.width, height: 250)
+                .position(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height - 30)
+            
             // Main content
             
             VStack(alignment: .leading, spacing: 16) {
@@ -45,51 +52,12 @@ struct HomeView: View {
                     .foregroundColor(.tsGray800)
                     .padding(.bottom, 10)
                 
-                Text("Please select widget type, its properties and tap on 'Generate Widget' button to generate and display the desired widget")
+                Text("Please select a shop, supported widget type, product (if available) and tap on 'Generate Widget' button to display the widget")
                     .font(.system(size: 14, weight: .regular))
                     .foregroundColor(.tsGray700)
                 
                 // Trustbadge input fields
                 VStack(alignment: .leading, spacing: 24) {
-                    // Widget type
-                    HStack(alignment: .center, spacing: 10) {
-                        Text("Widget")
-                            .font(.system(size: 14, weight: .regular))
-                            .foregroundColor(.tsGray700)
-                            .frame(width: 80, alignment: .trailing)
-                        
-                        Menu {
-                            ForEach(WidgetType.allCases, id: \.self) { widgetType in
-                                Button(
-                                    widgetType.title,
-                                    action: {
-                                        self.viewModel.selectedWidgetType = widgetType
-                                        self.viewModel.checkIfRequiredInputsAreProvided()
-                                    }
-                                )
-                            }
-                        }
-                        label: {
-                            HStack(alignment: .center, spacing: 0) {
-                                Text(self.viewModel.selectedWidgetType.title)
-                                    .font(.system(size: 12, weight: .regular))
-                                    .frame(width: 200)
-                                    .foregroundColor(Color.tsGray700)
-
-                                Image(systemName: "arrow.down")
-                                    .symbolRenderingMode(.monochrome)
-                                    .foregroundColor(Color.tsGray600)
-                                    .font(.system(size: 12, weight: .regular))
-                            }
-                            .padding(.all, 5)
-                            .padding(.horizontal, 5)
-                            .background(
-                                RoundedRectangle(cornerRadius: 15)
-                                    .fill(Color.tsGray100)
-                                    .frame(height: 30)
-                            )
-                        }
-                    }
                     
                     // Channel Id
                     HStack(alignment: .center, spacing: 10) {
@@ -103,8 +71,7 @@ struct HomeView: View {
                                 Button(
                                     channel.name,
                                     action: {
-                                        self.viewModel.selectedChannel = channel
-                                        self.viewModel.checkIfRequiredInputsAreProvided()
+                                        self.viewModel.updateChannelSelection(channel)
                                     }
                                 )
                             }
@@ -131,8 +98,50 @@ struct HomeView: View {
                         }
                     }
                     
+                    // Widget type
+                    HStack(alignment: .center, spacing: 10) {
+                        Text("Widget")
+                            .font(.system(size: 14, weight: .regular))
+                            .foregroundColor(.tsGray700)
+                            .frame(width: 80, alignment: .trailing)
+                        
+                        Menu {
+                            ForEach(self.viewModel.selectedChannel.supportedWidgets, id: \.self) { widgetType in
+                                Button(
+                                    widgetType.title,
+                                    action: {
+                                        self.viewModel.selectedWidgetType = widgetType
+                                    }
+                                )
+                            }
+                        }
+                        label: {
+                            HStack(alignment: .center, spacing: 0) {
+                                Text(self.viewModel.selectedWidgetType.title)
+                                    .font(.system(size: 12, weight: .regular))
+                                    .frame(width: 200)
+                                    .foregroundColor(Color.tsGray700)
+
+                                Image(systemName: "arrow.down")
+                                    .symbolRenderingMode(.monochrome)
+                                    .foregroundColor(Color.tsGray600)
+                                    .font(.system(size: 12, weight: .regular))
+                            }
+                            .padding(.all, 5)
+                            .padding(.horizontal, 5)
+                            .background(
+                                RoundedRectangle(cornerRadius: 15)
+                                    .fill(Color.tsGray100)
+                                    .frame(height: 30)
+                            )
+                        }
+                    }
+                    
                     // Product Id
-                    if self.viewModel.selectedWidgetType == .productGrade {
+                    if self.viewModel.selectedWidgetType == .productGrade,
+                       let products = self.viewModel.selectedChannel.products,
+                       !products.isEmpty {
+                        
                         HStack(alignment: .center, spacing: 10) {
                             Text("Product")
                                 .font(.system(size: 14, weight: .regular))
@@ -140,19 +149,18 @@ struct HomeView: View {
                                 .foregroundColor(.tsGray700)
                                 
                             Menu {
-                                ForEach(Product.allCases, id: \.self) { product in
+                                ForEach(products, id: \.self) { product in
                                     Button(
                                         product.name,
                                         action: {
-                                            self.viewModel.selectedProduct = product
-                                            self.viewModel.checkIfRequiredInputsAreProvided()
+                                            self.viewModel.updateProductSelection(product)
                                         }
                                     )
                                 }
                             }
                             label: {
                                 HStack(alignment: .center, spacing: 0) {
-                                    Text(self.viewModel.selectedProduct.name)
+                                    Text(self.viewModel.selectedProduct?.name ?? "")
                                         .font(.system(size: 12, weight: .regular))
                                         .frame(width: 200)
                                         .foregroundColor(Color.tsGray700)
@@ -212,7 +220,7 @@ struct HomeView: View {
                         }
                     }
                 }
-                .padding(.bottom, 20)
+                .padding(.bottom, 10)
                 
                 // Generate widget button
                 Button(action: {
@@ -227,9 +235,7 @@ struct HomeView: View {
                             .font(.system(size: 16, weight: .semibold))
                             .foregroundColor(Color.white)
                     }
-                    .opacity(self.viewModel.areRequiredInputsProvided ? 1 : 0.6)
                 }
-                .disabled(!self.viewModel.areRequiredInputsProvided)
                 
                 // Seperator line
                 Rectangle()
@@ -247,17 +253,14 @@ struct HomeView: View {
                 Spacer()
                 
             }
-            .padding(.top, 60)
+            .padding(.top, 50)
             .frame(
                 width: UIScreen.main.bounds.width - 32,
                 height: UIScreen.main.bounds.height
             )
-            
-            Image("waveBottomRight")
-                .resizable()
-                .scaledToFit()
-                .frame(width: UIScreen.main.bounds.width, height: 250)
-                .position(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height - 30)
+        }
+        .onAppear {
+            self.viewModel.updateChannelSelection(self.viewModel.selectedChannel)
         }
     }
 }

@@ -20,9 +20,9 @@ class HomeViewModel: ObservableObject {
     @Published var areRequiredInputsProvided: Bool = false
     @Published var selectedWidgetType: WidgetType = .trustMark
     @Published var selectedWidgetAlignment: WidgetAlignment = .leading
-    @Published var selectedTsId: TsId = .none
-    @Published var selectedChannel: Channel = .none
-    @Published var selectedProduct: Product = .none
+    @Published var selectedChannel: Channel = Channel.flyerAlarm
+    @Published var selectedProduct: Product? = nil
+    @Published var selectedChannelProducts: [Product] = []
     
     // MARK: - Public methods
     
@@ -41,18 +41,23 @@ class HomeViewModel: ObservableObject {
     }
     
     /**
-     Checks if user provided all required inputs for the selected widget type
+     Updates details based on selected channel
      */
-    func checkIfRequiredInputsAreProvided() {
-        self.areRequiredInputsProvided = false
-        
-        switch self.selectedWidgetType {
-        case .trustMark, .shopGrade, .buyerProtection:
-            self.areRequiredInputsProvided = self.selectedChannel != .none
-            return
-        case .productGrade:
-            self.areRequiredInputsProvided = self.selectedChannel != .none && self.selectedProduct != .none
+    func updateChannelSelection(_ channel: Channel) {
+        self.selectedChannel = channel
+        guard let products = channel.products, !products.isEmpty else {
+            self.selectedChannelProducts = []
+            self.selectedProduct = nil
             return
         }
+        self.selectedChannelProducts = products
+        self.selectedProduct = products.first
+    }
+    
+    /**
+     Updates selected product reference
+     */
+    func updateProductSelection(_ product: Product) {
+        self.selectedProduct = product
     }
 }

@@ -43,11 +43,11 @@ struct TrustbadgeWidget: View {
                     alignment: self.widgetData.alignment == .leading ? .leading : .trailing
                 )
                 .frame(height: 75)
-            } else if self.widgetData.type == .productGrade {
+            } else if self.widgetData.type == .productGrade, let product = self.widgetData.product {
                 TrustbadgeView(
                     tsId: self.widgetData.channel.tsId,
                     channelId: self.widgetData.channel.id,
-                    productId: self.widgetData.product.id,
+                    productId: product.id,
                     context: .productGrade,
                     alignment: self.widgetData.alignment == .leading ? .leading : .trailing
                 )

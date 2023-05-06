@@ -15,7 +15,7 @@ class WidgetModel {
     var type: WidgetType
     var alignment: WidgetAlignment
     var channel: Channel
-    var product: Product
+    var product: Product?
     
     // MARK: - Initializer
     
@@ -23,7 +23,7 @@ class WidgetModel {
         type: WidgetType,
         alignment: WidgetAlignment,
         channel: Channel,
-        product: Product = .none) {
+        product: Product? = nil) {
             self.id = UUID().uuidString
             self.type = type
             self.alignment = alignment
