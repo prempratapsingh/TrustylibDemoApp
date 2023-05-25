@@ -19,8 +19,6 @@ struct HomeView: View {
     // MARK: - Private properties
     
     @StateObject private var viewModel = HomeViewModel()
-    @State private var isTrustbadgeVisible = true
-    @State private var didGenerateWidget = false
     
     // MARK: - User interface
     
@@ -227,7 +225,6 @@ struct HomeView: View {
                 // Generate widget button
                 Button(action: {
                     self.viewModel.addNewWidgetWith()
-                    self.didGenerateWidget = true
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 20)
@@ -245,43 +242,13 @@ struct HomeView: View {
                     .fill(Color.tsGray200)
                     .frame(height: 1)
                 
-                ZStack {
-                    // Mock content
-                    ScrollView(.vertical, showsIndicators: false) {
-                        VStack(alignment: .leading, spacing: 12) {
-                            Text("Below texts show a vertical scroll pane. \n__Scroll up and down__ to see how the Trustbadge widget's visibility is managed.")
-                                .foregroundColor(Color.tsBlue600)
-                                .font(.system(size: 16, weight: .regular))
-                                .padding(.bottom, 12)
-                            
-                            ForEach(0..<20, id: \.self) { index in
-                                Text(self.viewModel.selectedWidgetType.description)
-                                    .foregroundColor(Color.tsGray600)
-                                    .font(.system(size: 14))
-                            }
-                            
-                            GeometryReader { proxy in
-                                let offset = proxy.frame(in: .named("scroll")).minY
-                                Color.clear.preference(key: ScrollViewOffsetPreferenceKey.self, value: offset)
-                            }
-                        }
-                        .onPreferenceChange(ScrollViewOffsetPreferenceKey.self) { value in
-                            self.isTrustbadgeVisible = value >= self.viewModel.scrollOffset
-                        }
+                // Trustbadge widgets
+                VStack(alignment: .leading, spacing: 24) {
+                    ForEach(self.viewModel.widgetsData, id: \.self.id) { widgetData in
+                        TrustbadgeWidget(widgetData: widgetData)
                     }
-                    
-                    // Trustbadge widgets
-                    VStack(alignment: .leading, spacing: 24) {
-                        ForEach(self.viewModel.widgetsData, id: \.self.id) { widgetData in
-                            TrustbadgeWidget(widgetData: widgetData)
-                                .opacity(self.isTrustbadgeVisible ? 1 : 0)
-                                .animation(.easeIn(duration: 0.2), value: self.isTrustbadgeVisible)
-                        }
-                    }
-                    .offset(y: 60)
                 }
-                .opacity(self.didGenerateWidget ? 1 : 0)
-                .animation(.easeIn(duration: 0.2), value: self.didGenerateWidget)
+                .padding(.top, 10)
                 
                 Spacer()
                 
@@ -295,13 +262,5 @@ struct HomeView: View {
         .onAppear {
             self.viewModel.updateChannelSelection(self.viewModel.selectedChannel)
         }
-    }
-}
-
-struct ScrollViewOffsetPreferenceKey: PreferenceKey {
-    typealias Value = CGFloat
-    static var defaultValue = CGFloat.zero
-    static func reduce(value: inout Value, nextValue: () -> Value) {
-        value += nextValue()
     }
 }

@@ -7,17 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C101B9C329FA7826000192CD /* TrustylibDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101B9C229FA7826000192CD /* TrustylibDemoApp.swift */; };
-		C101B9C529FA7826000192CD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101B9C429FA7826000192CD /* MainView.swift */; };
-		C101B9C729FA7827000192CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C101B9C629FA7827000192CD /* Assets.xcassets */; };
 		C101B9CA29FA7827000192CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C101B9C929FA7827000192CD /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C101B9BF29FA7826000192CD /* TrustylibDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrustylibDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C101B9C229FA7826000192CD /* TrustylibDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustylibDemoApp.swift; sourceTree = "<group>"; };
-		C101B9C429FA7826000192CD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		C101B9C629FA7827000192CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C101B9C929FA7827000192CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,9 +46,6 @@
 			isa = PBXGroup;
 			children = (
 				C101B9D029FA7866000192CD /* Application */,
-				C101B9D129FA786F000192CD /* View */,
-				C101B9D329FA78AA000192CD /* ViewModel */,
-				C101B9D229FA78A4000192CD /* Model */,
 				C101B9C829FA7827000192CD /* Preview Content */,
 			);
 			path = TrustylibDemo;
@@ -71,32 +62,8 @@
 		C101B9D029FA7866000192CD /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				C101B9C229FA7826000192CD /* TrustylibDemoApp.swift */,
 			);
 			path = Application;
-			sourceTree = "<group>";
-		};
-		C101B9D129FA786F000192CD /* View */ = {
-			isa = PBXGroup;
-			children = (
-				C101B9C429FA7826000192CD /* MainView.swift */,
-				C101B9C629FA7827000192CD /* Assets.xcassets */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		C101B9D229FA78A4000192CD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		C101B9D329FA78AA000192CD /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,7 +125,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C101B9CA29FA7827000192CD /* Preview Assets.xcassets in Resources */,
-				C101B9C729FA7827000192CD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,8 +135,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C101B9C529FA7826000192CD /* MainView.swift in Sources */,
-				C101B9C329FA7826000192CD /* TrustylibDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

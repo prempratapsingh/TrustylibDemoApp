@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import Trustylib
 
 @main
 struct TrustyLibApp: App {
+    
+    // MARK: - Intializeer
     
     // MARK: - User interface
     

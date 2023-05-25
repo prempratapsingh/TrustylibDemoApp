@@ -24,15 +24,6 @@ class HomeViewModel: ObservableObject {
     @Published var selectedProduct: Product? = nil
     @Published var selectedChannelProducts: [Product] = []
     
-    var scrollOffset: CGFloat {
-        switch self.selectedWidgetType {
-        case .trustMark: return 1500
-        case .shopGrade: return 2400
-        case .productGrade: return 1800
-        case .buyerProtection: return 1500
-        }
-    }
-    
     // MARK: - Public methods
     
     /**
