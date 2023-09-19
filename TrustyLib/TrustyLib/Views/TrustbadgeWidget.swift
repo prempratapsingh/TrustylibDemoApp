@@ -39,6 +39,8 @@ struct TrustbadgeWidget: View {
                 TrustbadgeView(
                     tsId: self.widgetData.channel.tsId,
                     channelId: self.widgetData.channel.id,
+                    orderDetails: self.widgetData.orderDetails,
+                    trustCardState: self.widgetData.trustCardState,
                     context: .buyerProtection,
                     alignment: self.widgetData.alignment == .leading ? .leading : .trailing
                 )

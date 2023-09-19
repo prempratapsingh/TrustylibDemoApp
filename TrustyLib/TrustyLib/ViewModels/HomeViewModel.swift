@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Trustylib
+import SwiftUI
 
 /**
  HomeViewModel works as the view model of the Home view, providing the business logic
@@ -38,12 +40,16 @@ class HomeViewModel: ObservableObject {
     /**
      Adds a new widget data object to the list of widget data
      */
-    func addNewWidgetWith() {
+    func addNewWidgetWith(
+        orderDetails: Binding<OrderDetailsModel?> = .constant(nil),
+        trustCardState: Binding<TrustcardState?> = .constant(nil)) {
         let widget = WidgetModel(
             type: self.selectedWidgetType,
             alignment: self.selectedWidgetAlignment,
             channel: self.selectedChannel,
-            product: self.selectedProduct
+            product: self.selectedProduct,
+            orderDetails: orderDetails,
+            trustCardState: trustCardState
         )
         self.widgetsData.removeAll()
         self.widgetsData.append(widget)

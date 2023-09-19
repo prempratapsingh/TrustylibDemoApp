@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1759DF32AB9ABFF00404330 /* Trustylib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B2CA672A15067500D2AE04 /* Trustylib.framework */; };
+		C1759DF42AB9ABFF00404330 /* Trustylib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C1B2CA672A15067500D2AE04 /* Trustylib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C199485F29FF6A7B004CD4A1 /* TrustyLibApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C199485E29FF6A7B004CD4A1 /* TrustyLibApp.swift */; };
 		C199486129FF6A7B004CD4A1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C199486029FF6A7B004CD4A1 /* HomeView.swift */; };
 		C199486329FF6A7B004CD4A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C199486229FF6A7B004CD4A1 /* Assets.xcassets */; };
@@ -24,10 +26,23 @@
 		C199489D29FFA60C004CD4A1 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C199489C29FFA60C004CD4A1 /* Channel.swift */; };
 		C199489F29FFA617004CD4A1 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C199489E29FFA617004CD4A1 /* Product.swift */; };
 		C19948A62A00217A004CD4A1 /* TrustbadgeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19948A52A00217A004CD4A1 /* TrustbadgeWidget.swift */; };
-		C1CCBB782A1F9D2E0040C3BD /* Trustylib in Frameworks */ = {isa = PBXBuildFile; productRef = C1CCBB772A1F9D2E0040C3BD /* Trustylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C1062E172AB948E10050EF1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1062E122AB948E10050EF1A /* Trustylib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C119217C29852A1400A550C7;
+			remoteInfo = Trustylib;
+		};
+		C1062E192AB948E10050EF1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1062E122AB948E10050EF1A /* Trustylib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C119218629852A1400A550C7;
+			remoteInfo = TrustylibTests;
+		};
 		C199486C29FF6A7B004CD4A1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C199485329FF6A7B004CD4A1 /* Project object */;
@@ -44,7 +59,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C1759DF52AB9ABFF00404330 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C1759DF42AB9ABFF00404330 /* Trustylib.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		C1062E122AB948E10050EF1A /* Trustylib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Trustylib.xcodeproj; path = "../../../etrusted-ios-trustbadge-library/Trustylib.xcodeproj"; sourceTree = "<group>"; };
 		C1762A452A0EA90800C047A5 /* Trustylib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Trustylib.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/TrustyLib-hfcxybxahrxwmqfrbzozapjwkzdo/Build/Products/Debug-iphonesimulator/Trustylib.framework"; sourceTree = "<group>"; };
 		C199485B29FF6A7B004CD4A1 /* TrustyLibDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrustyLibDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C199485E29FF6A7B004CD4A1 /* TrustyLibApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustyLibApp.swift; sourceTree = "<group>"; };
@@ -67,6 +97,9 @@
 		C199489E29FFA617004CD4A1 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		C19948A52A00217A004CD4A1 /* TrustbadgeWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustbadgeWidget.swift; sourceTree = "<group>"; };
 		C1B2CA672A15067500D2AE04 /* Trustylib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Trustylib.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/TrustyLib-hfcxybxahrxwmqfrbzozapjwkzdo/Build/Products/Debug-iphoneos/Trustylib.framework"; sourceTree = "<group>"; };
+		C1DFD3302A2881370001ABFC /* TrustyLibDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TrustyLibDemo-Info.plist"; sourceTree = "<group>"; };
+		C1DFD3332A2888490001ABFC /* TrustyLibDemoRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrustyLibDemoRelease.entitlements; sourceTree = "<group>"; };
+		C1DFD34F2A288B520001ABFC /* Trustylib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Trustylib.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/Trustylib-drqnfejfobosrybirrvpjlaogqvb/Build/Products/Debug-iphoneos/Trustylib.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1CCBB782A1F9D2E0040C3BD /* Trustylib in Frameworks */,
+				C1759DF32AB9ABFF00404330 /* Trustylib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,9 +128,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1062E132AB948E10050EF1A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1062E182AB948E10050EF1A /* Trustylib.framework */,
+				C1062E1A2AB948E10050EF1A /* TrustylibTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C1762A442A0EA90800C047A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1DFD34F2A288B520001ABFC /* Trustylib.framework */,
 				C1B2CA672A15067500D2AE04 /* Trustylib.framework */,
 				C1762A452A0EA90800C047A5 /* Trustylib.framework */,
 			);
@@ -107,6 +150,9 @@
 		C199485229FF6A7B004CD4A1 = {
 			isa = PBXGroup;
 			children = (
+				C1062E122AB948E10050EF1A /* Trustylib.xcodeproj */,
+				C1DFD3332A2888490001ABFC /* TrustyLibDemoRelease.entitlements */,
+				C1DFD3302A2881370001ABFC /* TrustyLibDemo-Info.plist */,
 				C199485D29FF6A7B004CD4A1 /* TrustyLib */,
 				C199486E29FF6A7B004CD4A1 /* TrustyLibTests */,
 				C199487829FF6A7B004CD4A1 /* TrustyLibUITests */,
@@ -229,6 +275,7 @@
 				C199485729FF6A7B004CD4A1 /* Sources */,
 				C199485829FF6A7B004CD4A1 /* Frameworks */,
 				C199485929FF6A7B004CD4A1 /* Resources */,
+				C1759DF52AB9ABFF00404330 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,7 +283,6 @@
 			);
 			name = TrustyLibDemo;
 			packageProductDependencies = (
-				C1CCBB772A1F9D2E0040C3BD /* Trustylib */,
 			);
 			productName = TrustyLib;
 			productReference = C199485B29FF6A7B004CD4A1 /* TrustyLibDemo.app */;
@@ -311,10 +357,15 @@
 			);
 			mainGroup = C199485229FF6A7B004CD4A1;
 			packageReferences = (
-				C1CCBB762A1F9D2E0040C3BD /* XCRemoteSwiftPackageReference "etrusted-ios-trustbadge-library" */,
 			);
 			productRefGroup = C199485C29FF6A7B004CD4A1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C1062E132AB948E10050EF1A /* Products */;
+					ProjectRef = C1062E122AB948E10050EF1A /* Trustylib.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C199485A29FF6A7B004CD4A1 /* TrustyLibDemo */,
@@ -323,6 +374,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C1062E182AB948E10050EF1A /* Trustylib.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Trustylib.framework;
+			remoteRef = C1062E172AB948E10050EF1A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C1062E1A2AB948E10050EF1A /* TrustylibTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TrustylibTests.xctest;
+			remoteRef = C1062E192AB948E10050EF1A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C199485929FF6A7B004CD4A1 /* Resources */ = {
@@ -523,11 +591,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"TrustyLib/Preview Content\"";
 				DEVELOPMENT_TEAM = SP56HZ86QA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TrustyLibDemo-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = TrustyLib;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -541,7 +610,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.etrusted.ios.trustylib.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -558,12 +627,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TrustyLibDemoRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"TrustyLib/Preview Content\"";
 				DEVELOPMENT_TEAM = SP56HZ86QA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TrustyLibDemo-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = TrustyLib;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -577,7 +648,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.etrusted.ios.trustylib.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -705,25 +776,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		C1CCBB762A1F9D2E0040C3BD /* XCRemoteSwiftPackageReference "etrusted-ios-trustbadge-library" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/trustedshops-public/etrusted-ios-trustbadge-library.git";
-			requirement = {
-				kind = exactVersion;
-				version = 1.2.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C1CCBB772A1F9D2E0040C3BD /* Trustylib */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C1CCBB762A1F9D2E0040C3BD /* XCRemoteSwiftPackageReference "etrusted-ios-trustbadge-library" */;
-			productName = Trustylib;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C199485329FF6A7B004CD4A1 /* Project object */;
 }

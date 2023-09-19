@@ -17,10 +17,12 @@ import Trustylib
 struct HomeView: View {
     
     // MARK: - Private properties
-    
+    @Environment(\.colorScheme) var colorScheme
     @StateObject private var viewModel = HomeViewModel()
     @State private var isTrustbadgeVisible = true
     @State private var didGenerateWidget = false
+    @State private var orderDetails: OrderDetailsModel?
+    @State private var trustcardState: TrustcardState?
     
     // MARK: - User interface
     
@@ -28,8 +30,13 @@ struct HomeView: View {
         ZStack {
             
             // Background color
-            Color.tsOffwhite
-                .ignoresSafeArea()
+            if self.colorScheme == .light {
+                Color.tsOffwhite
+                    .ignoresSafeArea()
+            } else {
+                Color.tsGray800
+                    .ignoresSafeArea()
+            }
             
             // Yellow cloud graphics
             Image("waveBottomRight")
@@ -40,23 +47,23 @@ struct HomeView: View {
             
             // Main content
             
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: 14) {
                 
                 // Title text
-                Text("TrustyLib")
-                    .font(.system(size: 28, weight: .semibold))
-                    .foregroundColor(.tsBlue700)
+                Text("TrustyLib Demo")
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundColor(self.colorScheme == .light ? .tsBlue700 : .tsBlue500)
                 Text("Trustylib library provides easy to integrate TrustedShops Trustmark, Shop Grade, Product Grade and Buyer Protection widgets for iOS and Android applications.")
                     .font(.system(size: 16, weight: .regular))
-                    .foregroundColor(.tsGray800)
+                    .foregroundColor(self.colorScheme == .light ? .tsGray800 : .tsGray200)
                 Text("Please checkout library's [Git Project](https://github.com/trustedshops-public/etrusted-ios-trustbadge-library) for more details about the available widgets, usage guides, etc.")
                     .font(.system(size: 16, weight: .regular))
-                    .foregroundColor(.tsGray800)
+                    .foregroundColor(self.colorScheme == .light ? .tsGray800 : .tsGray200)
                     .padding(.bottom, 10)
                 
-                Text("Please select a shop, supported widget type, product (if available) and tap on 'Generate Widget' button to display the widget")
+                Text("Please select a shop, supported widget type, product (if available), alignment and tap on 'Generate Widget' button to display the widget")
                     .font(.system(size: 14, weight: .regular))
-                    .foregroundColor(.tsGray700)
+                    .foregroundColor(self.colorScheme == .light ? .tsGray700 : .tsGray300)
                 
                 // Trustbadge input fields
                 VStack(alignment: .leading, spacing: 24) {
@@ -65,7 +72,7 @@ struct HomeView: View {
                     HStack(alignment: .center, spacing: 10) {
                         Text("Shop")
                             .font(.system(size: 14, weight: .regular))
-                            .foregroundColor(.tsGray700)
+                            .foregroundColor(self.colorScheme == .light ? .tsGray700 : .tsGray300)
                             .frame(width: 80, alignment: .trailing)
                         
                         Menu {
@@ -83,7 +90,7 @@ struct HomeView: View {
                                 Text(self.viewModel.selectedChannel.name)
                                     .font(.system(size: 12, weight: .regular))
                                     .frame(width: 200)
-                                    .foregroundColor(Color.tsGray700)
+                                    .foregroundColor(.tsGray700)
 
                                 Image(systemName: "arrow.down")
                                     .symbolRenderingMode(.monochrome)
@@ -104,7 +111,7 @@ struct HomeView: View {
                     HStack(alignment: .center, spacing: 10) {
                         Text("Widget")
                             .font(.system(size: 14, weight: .regular))
-                            .foregroundColor(.tsGray700)
+                            .foregroundColor(self.colorScheme == .light ? .tsGray700 : .tsGray300)
                             .frame(width: 80, alignment: .trailing)
                         
                         Menu {
@@ -148,7 +155,7 @@ struct HomeView: View {
                             Text("Product")
                                 .font(.system(size: 14, weight: .regular))
                                 .frame(width: 80, alignment: .trailing)
-                                .foregroundColor(.tsGray700)
+                                .foregroundColor(self.colorScheme == .light ? .tsGray700 : .tsGray300)
                                 
                             Menu {
                                 ForEach(products, id: \.self) { product in
@@ -188,7 +195,7 @@ struct HomeView: View {
                         Text("Alignment")
                             .font(.system(size: 14, weight: .regular))
                             .frame(width: 80, alignment: .trailing)
-                            .foregroundColor(.tsGray700)
+                            .foregroundColor(self.colorScheme == .light ? .tsGray700 : .tsGray300)
                             
                         Menu {
                             ForEach(WidgetAlignment.allCases, id: \.self) { alignment in
@@ -226,17 +233,38 @@ struct HomeView: View {
                 
                 // Generate widget button
                 Button(action: {
-                    self.viewModel.addNewWidgetWith()
+                    self.viewModel.addNewWidgetWith(
+                        orderDetails: self.$orderDetails,
+                        trustCardState: self.$trustcardState
+                    )
                     self.didGenerateWidget = true
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 20)
-                            .fill(Color.tsBlue500)
+                            .fill(self.colorScheme == .light ? Color.tsBlue700 : Color.tsBlue500)
                             .frame(height: 40)
                         
                         Text("Generate Widget")
                             .font(.system(size: 16, weight: .semibold))
                             .foregroundColor(Color.white)
+                    }
+                }
+                
+                // Show Trustcard view button
+                if self.viewModel.selectedWidgetType == .buyerProtection {
+                    Button(action: {
+                        self.orderDetails = OrderDetailsModel(number: "123", amount: 789, currency: .eur, paymentType: "credit-card", estimatedDeliveryDate: "23-11-2023", buyerEmail: "abc@xyz.com")
+                        self.trustcardState = .classicProtection
+                    }) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(Color.clear)
+                                .frame(height: 25)
+                            
+                            Text("Show Trustcard")
+                                .font(.system(size: 16, weight: .semibold))
+                                .foregroundColor(self.colorScheme == .light ? Color.tsBlue700 : Color.tsBlue500)
+                        }
                     }
                 }
                 
@@ -250,14 +278,15 @@ struct HomeView: View {
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(alignment: .leading, spacing: 12) {
                             Text("Below texts show a vertical scroll pane. \n__Scroll up and down__ to see how the Trustbadge widget's visibility is managed.")
-                                .foregroundColor(Color.tsBlue600)
+                                .foregroundColor(self.colorScheme == .light ? Color.tsBlue600 : Color.tsBlue500)
                                 .font(.system(size: 16, weight: .regular))
                                 .padding(.bottom, 12)
                             
                             ForEach(0..<20, id: \.self) { index in
                                 Text(self.viewModel.selectedWidgetType.description)
-                                    .foregroundColor(Color.tsGray600)
+                                    .foregroundColor(self.colorScheme == .light ? Color.tsGray300 : Color.tsGray600)
                                     .font(.system(size: 14))
+                                    .opacity(0.6)
                             }
                             
                             GeometryReader { proxy in
@@ -278,7 +307,7 @@ struct HomeView: View {
                                 .animation(.easeIn(duration: 0.2), value: self.isTrustbadgeVisible)
                         }
                     }
-                    .offset(y: 60)
+                    .offset(y: self.viewModel.selectedWidgetType == .buyerProtection ? 40 : 60)
                 }
                 .opacity(self.didGenerateWidget ? 1 : 0)
                 .animation(.easeIn(duration: 0.2), value: self.didGenerateWidget)

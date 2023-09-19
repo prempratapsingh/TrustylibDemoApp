@@ -28,30 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C199486A29FF6A7B004CD4A1"
-               BuildableName = "TrustyLibTests.xctest"
-               BlueprintName = "TrustyLibTests"
-               ReferencedContainer = "container:TrustyLib.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C199487429FF6A7B004CD4A1"
-               BuildableName = "TrustyLibUITests.xctest"
-               BlueprintName = "TrustyLibUITests"
-               ReferencedContainer = "container:TrustyLib.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
